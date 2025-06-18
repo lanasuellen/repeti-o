@@ -1,0 +1,624 @@
+/**
+ * 🟣 Site de Números - Design Roxo INCRÍVEL 🟣
+ * Arquivo de estilos CSS principal
+ * 
+ * Características:
+ * - Design responsivo e moderno
+ * - Paleta de cores roxa vibrante
+ * - Animações e efeitos visuais avançados
+ * - Fontes em estilo graffiti
+ */
+
+/* ========================================
+   IMPORTAÇÃO DE FONTES
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Rubik+Wet+Paint&family=Rubik+Spray+Paint&family=Rubik+Gemstones&display=swap');
+
+/* ========================================
+   VARIÁVEIS CSS (CUSTOM PROPERTIES)
+   ======================================== */
+
+:root {
+    /* Paleta de cores roxa */
+    --purple-violet: #8B5CF6;
+    --purple-medium: #A855F7;
+    --purple-light: #C084FC;
+    --purple-pink: #E879F9;
+    --purple-light-pink: #F0ABFC;
+    --purple-white: #F3E8FF;
+    
+    /* Cores de fundo */
+    --bg-dark-purple: rgba(88, 28, 135, 0.9);
+    --bg-transparent: rgba(255, 255, 255, 0.1);
+    
+    /* Sombras */
+    --shadow-purple: rgba(139, 92, 246, 0.4);
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    
+    /* Transições */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
+    
+    /* Bordas */
+    --border-radius-small: 10px;
+    --border-radius-medium: 15px;
+    --border-radius-large: 20px;
+    --border-radius-xl: 25px;
+    
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 2.5rem;
+    --spacing-xxl: 3rem;
+}
+
+/* ========================================
+   RESET CSS BÁSICO
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   ESTILOS DO CORPO DA PÁGINA
+   ======================================== */
+
+body {
+    font-family: 'Rubik Spray Paint', cursive;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, 
+        var(--purple-violet) 0%, 
+        var(--purple-medium) 20%, 
+        var(--purple-light) 40%, 
+        var(--purple-pink) 60%, 
+        var(--purple-light-pink) 80%, 
+        var(--purple-white) 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 6s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Animação do gradiente de fundo */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ========================================
+   ESTILOS DO CABEÇALHO
+   ======================================== */
+
+header {
+    background: var(--bg-dark-purple);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    box-shadow: 
+        0 8px 32px var(--shadow-purple),
+        inset 0 1px 0 var(--bg-transparent);
+    border-bottom: 5px solid var(--purple-light);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho no cabeçalho */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--bg-transparent), transparent);
+    animation: headerShine 3s infinite;
+}
+
+@keyframes headerShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Título principal */
+header h1 {
+    font-family: 'Rubik Vinyl', cursive;
+    font-size: 4rem;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-shadow: 
+        4px 4px 0px var(--purple-violet),
+        8px 8px 0px var(--purple-medium),
+        12px 12px 0px var(--purple-light),
+        16px 16px 0px var(--purple-pink);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animação de brilho no título */
+@keyframes titleGlow {
+    from { 
+        text-shadow: 
+            4px 4px 0px var(--purple-violet),
+            8px 8px 0px var(--purple-medium),
+            12px 12px 0px var(--purple-light),
+            16px 16px 0px var(--purple-pink);
+    }
+    to { 
+        text-shadow: 
+            4px 4px 0px var(--purple-violet),
+            8px 8px 0px var(--purple-medium),
+            12px 12px 0px var(--purple-light),
+            16px 16px 0px var(--purple-pink),
+            0 0 30px var(--purple-light-pink),
+            0 0 60px var(--purple-white);
+    }
+}
+
+/* ========================================
+   ESTILOS DA SEÇÃO PRINCIPAL
+   ======================================== */
+
+main {
+    flex: 1;
+    padding: var(--spacing-xxl) var(--spacing-sm);
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Container principal */
+.container {
+    background: var(--bg-dark-purple);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xxl);
+    box-shadow: 
+        0 20px 50px var(--shadow-purple),
+        inset 0 1px 0 var(--bg-transparent);
+    backdrop-filter: blur(20px);
+    border: 4px solid var(--purple-light);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de rotação no container */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, var(--purple-violet), transparent, var(--purple-medium), transparent);
+    animation: containerRotate 8s linear infinite;
+    opacity: 0.1;
+}
+
+@keyframes containerRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Subtítulo */
+.container h2 {
+    font-family: 'Rubik Wet Paint', cursive;
+    text-align: center;
+    color: #fff;
+    margin-bottom: var(--spacing-xl);
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-shadow: 3px 3px 0px var(--purple-violet), 6px 6px 0px var(--purple-medium);
+    position: relative;
+    z-index: 2;
+}
+
+/* ========================================
+   ESTILOS DA LISTA DE NÚMEROS
+   ======================================== */
+
+.numbers-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    position: relative;
+    z-index: 2;
+}
+
+/* Item individual dos números */
+.number-item {
+    font-family: 'Rubik Gemstones', cursive;
+    background: linear-gradient(45deg, 
+        var(--purple-violet), 
+        var(--purple-medium), 
+        var(--purple-light), 
+        var(--purple-pink), 
+        var(--purple-light-pink));
+    background-size: 400% 400%;
+    animation: gradientMove 4s ease infinite;
+    color: white;
+    padding: var(--spacing-xl) var(--spacing-md);
+    border-radius: var(--border-radius-large);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 
+        0 12px 35px var(--shadow-purple),
+        inset 0 2px 0 var(--bg-transparent);
+    transition: all var(--transition-medium);
+    cursor: pointer;
+    border: 3px solid var(--bg-transparent);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 0px var(--shadow-dark);
+}
+
+/* Efeito de brilho nos números */
+.number-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--bg-transparent), transparent);
+    transition: left var(--transition-medium);
+}
+
+/* Efeito de pulso nos números */
+.number-item::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--bg-transparent) 0%, transparent 70%);
+    animation: numberPulse 3s ease-in-out infinite;
+}
+
+.number-item:hover::before {
+    left: 100%;
+}
+
+/* Animação do gradiente dos números */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animação de pulso */
+@keyframes numberPulse {
+    0%, 100% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.1); opacity: 0.3; }
+}
+
+/* Efeito hover nos números */
+.number-item:hover {
+    transform: translateY(-12px) scale(1.08) rotate(2deg);
+    box-shadow: 
+        0 20px 50px var(--shadow-purple),
+        inset 0 2px 0 var(--bg-transparent);
+    border-color: var(--bg-transparent);
+    text-shadow: 3px 3px 0px var(--shadow-dark);
+}
+
+/* ========================================
+   ESTILOS DO RODAPÉ
+   ======================================== */
+
+footer {
+    background: var(--bg-dark-purple);
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    color: #fff;
+    font-size: 1.1rem;
+    box-shadow: 
+        0 -8px 32px var(--shadow-purple),
+        inset 0 1px 0 var(--bg-transparent);
+    border-top: 4px solid var(--purple-light);
+}
+
+footer p {
+    font-family: 'Rubik Spray Paint', cursive;
+    text-shadow: 2px 2px 0px var(--purple-violet);
+}
+
+/* ========================================
+   ANIMAÇÕES DE ENTRADA
+   ======================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px) rotate(-8deg) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* ========================================
+   SISTEMA DE PARTÍCULAS FLUTUANTES
+   ======================================== */
+
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(45deg, var(--purple-violet), var(--purple-medium), var(--purple-light));
+    border-radius: 50%;
+    animation: float 8s infinite linear;
+    box-shadow: 0 0 10px var(--shadow-purple);
+}
+
+.particle:nth-child(even) {
+    background: linear-gradient(45deg, var(--purple-pink), var(--purple-light-pink), var(--purple-white));
+    box-shadow: 0 0 15px rgba(232, 121, 249, 0.6);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) rotate(36deg) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(10vh) rotate(324deg) scale(1);
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   EFEITO DE BRILHO ESPECIAL
+   ======================================== */
+
+.glow-effect {
+    position: relative;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--purple-violet), 
+        var(--purple-medium), 
+        var(--purple-light), 
+        var(--purple-pink), 
+        var(--purple-light-pink));
+    border-radius: inherit;
+    z-index: -1;
+    animation: glowRotate 3s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes glowRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVIDADE
+   ======================================== */
+
+/* Tablets e telas médias */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3rem;
+        text-shadow: 
+            2px 2px 0px var(--purple-violet),
+            4px 4px 0px var(--purple-medium),
+            6px 6px 0px var(--purple-light),
+            8px 8px 0px var(--purple-pink);
+    }
+
+    .container {
+        padding: var(--spacing-xl);
+        margin: 0 var(--spacing-sm);
+    }
+
+    .container h2 {
+        font-size: 2rem;
+    }
+
+    .numbers-list {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .number-item {
+        padding: var(--spacing-lg) var(--spacing-sm);
+        font-size: 2rem;
+    }
+}
+
+/* Dispositivos móveis */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.5rem;
+        text-shadow: 
+            1px 1px 0px var(--purple-violet),
+            2px 2px 0px var(--purple-medium),
+            3px 3px 0px var(--purple-light),
+            4px 4px 0px var(--purple-pink);
+    }
+
+    .container h2 {
+        font-size: 1.8rem;
+    }
+
+    .numbers-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+    }
+
+    .number-item {
+        padding: var(--spacing-md) var(--spacing-xs);
+        font-size: 1.8rem;
+    }
+}
+
+/* ========================================
+   ANIMAÇÕES ADICIONAIS
+   ======================================== */
+
+/* Efeito de pulso para elementos */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Efeito de shake para elementos */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Efeito de bounce */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+    40%, 43% { transform: translate3d(0, -30px, 0); }
+    70% { transform: translate3d(0, -15px, 0); }
+    90% { transform: translate3d(0, -4px, 0); }
+}
+
+/* ========================================
+   UTILITÁRIOS CSS
+   ======================================== */
+
+/* Classes utilitárias para animações */
+.animate-pulse { animation: pulse 2s infinite; }
+.animate-shake { animation: shake 0.5s ease-in-out; }
+.animate-bounce { animation: bounce 1s ease-in-out; }
+
+/* Classes utilitárias para cores */
+.text-purple { color: var(--purple-violet); }
+.bg-purple { background-color: var(--purple-violet); }
+.border-purple { border-color: var(--purple-violet); }
+
+/* Classes utilitárias para espaçamento */
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+/* ========================================
+   ESTILOS PARA ESTADOS ESPECIAIS
+   ======================================== */
+
+/* Estado de foco para acessibilidade */
+.number-item:focus {
+    outline: 3px solid var(--purple-light-pink);
+    outline-offset: 2px;
+}
+
+/* Estado de carregamento */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Estado de erro */
+.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+/* Estado de sucesso */
+.success {
+    border-color: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* ========================================
+   IMPRESSÃO
+   ======================================== */
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .floating-particles,
+    .glow-effect::before,
+    .container::before {
+        display: none;
+    }
+    
+    .number-item {
+        background: white;
+        color: black;
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+}
+
+/* ========================================
+   REDUÇÃO DE MOVIMENTO (ACESSIBILIDADE)
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .floating-particles {
+        display: none;
+    }
+} 
