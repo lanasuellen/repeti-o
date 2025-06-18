@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números de 1 a 10 - ROXO INCRÍVEL</title>
+    <!-- Importando fontes graffiti do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Rubik+Wet+Paint&family=Rubik+Spray+Paint&family=Rubik+Gemstones&display=swap" rel="stylesheet">
+    <style>
+        /* Reset CSS básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos do corpo da página */
+        body {
+            font-family: 'Rubik Spray Paint', cursive;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 20%, #C084FC 40%, #E879F9 60%, #F0ABFC 80%, #F3E8FF 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 6s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Estilos do cabeçalho */
+        header {
+            background: rgba(88, 28, 135, 0.9);
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 
+                0 8px 32px rgba(139, 92, 246, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-bottom: 5px solid #C084FC;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: headerShine 3s infinite;
+        }
+
+        @keyframes headerShine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        header h1 {
+            font-family: 'Rubik Vinyl', cursive;
+            font-size: 4rem;
+            color: #fff;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-shadow: 
+                4px 4px 0px #8B5CF6,
+                8px 8px 0px #A855F7,
+                12px 12px 0px #C084FC,
+                16px 16px 0px #E879F9;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes titleGlow {
+            from { 
+                text-shadow: 
+                    4px 4px 0px #8B5CF6,
+                    8px 8px 0px #A855F7,
+                    12px 12px 0px #C084FC,
+                    16px 16px 0px #E879F9;
+            }
+            to { 
+                text-shadow: 
+                    4px 4px 0px #8B5CF6,
+                    8px 8px 0px #A855F7,
+                    12px 12px 0px #C084FC,
+                    16px 16px 0px #E879F9,
+                    0 0 30px #F0ABFC,
+                    0 0 60px #F3E8FF;
+            }
+        }
+
+        /* Estilos da seção principal */
+        main {
+            flex: 1;
+            padding: 3rem 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .container {
+            background: rgba(88, 28, 135, 0.9);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 
+                0 20px 50px rgba(139, 92, 246, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border: 4px solid #C084FC;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, #8B5CF6, transparent, #A855F7, transparent);
+            animation: containerRotate 8s linear infinite;
+            opacity: 0.1;
+        }
+
+        @keyframes containerRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .container h2 {
+            font-family: 'Rubik Wet Paint', cursive;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 2.5rem;
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-shadow: 3px 3px 0px #8B5CF6, 6px 6px 0px #A855F7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Estilos da lista de números */
+        .numbers-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .number-item {
+            font-family: 'Rubik Gemstones', cursive;
+            background: linear-gradient(45deg, #8B5CF6, #A855F7, #C084FC, #E879F9, #F0ABFC);
+            background-size: 400% 400%;
+            animation: gradientMove 4s ease infinite;
+            color: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            box-shadow: 
+                0 12px 35px rgba(139, 92, 246, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        .number-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .number-item::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: numberPulse 3s ease-in-out infinite;
+        }
+
+        .number-item:hover::before {
+            left: 100%;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .number-item:hover {
+            transform: translateY(-12px) scale(1.08) rotate(2deg);
+            box-shadow: 
+                0 20px 50px rgba(139, 92, 246, 0.6),
+                inset 0 2px 0 rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.7);
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Estilos do rodapé */
+        footer {
+            background: rgba(88, 28, 135, 0.9);
+            text-align: center;
+            padding: 2rem 0;
+            color: #fff;
+            font-size: 1.1rem;
+            box-shadow: 
+                0 -8px 32px rgba(139, 92, 246, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #C084FC;
+        }
+
+        footer p {
+            font-family: 'Rubik Spray Paint', cursive;
+            text-shadow: 2px 2px 0px #8B5CF6;
+        }
+
+        /* Media queries para responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+                text-shadow: 
+                    2px 2px 0px #8B5CF6,
+                    4px 4px 0px #A855F7,
+                    6px 6px 0px #C084FC,
+                    8px 8px 0px #E879F9;
+            }
+
+            .container {
+                padding: 2.5rem;
+                margin: 0 1rem;
+            }
+
+            .container h2 {
+                font-size: 2rem;
+            }
+
+            .numbers-list {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .number-item {
+                padding: 2rem 1rem;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+                text-shadow: 
+                    1px 1px 0px #8B5CF6,
+                    2px 2px 0px #A855F7,
+                    3px 3px 0px #C084FC,
+                    4px 4px 0px #E879F9;
+            }
+
+            .container h2 {
+                font-size: 1.8rem;
+            }
+
+            .numbers-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .number-item {
+                padding: 1.5rem 0.8rem;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animação de entrada melhorada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px) rotate(-8deg) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Efeito de partículas flutuantes roxas */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, #8B5CF6, #A855F7, #C084FC);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+        }
+
+        .particle:nth-child(even) {
+            background: linear-gradient(45deg, #E879F9, #F0ABFC, #F3E8FF);
+            box-shadow: 0 0 15px rgba(232, 121, 249, 0.6);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(90vh) rotate(36deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) rotate(324deg) scale(1);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Efeito de brilho especial */
+        .glow-effect {
+            position: relative;
+        }
+
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #8B5CF6, #A855F7, #C084FC, #E879F9, #F0ABFC);
+            border-radius: inherit;
+            z-index: -1;
+            animation: glowRotate 3s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes glowRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efeito de partículas flutuantes -->
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Cabeçalho do site -->
+    <header>
+        <h1>NÚMEROS DE 1 A 10</h1>
+    </header>
+
+    <!-- Seção principal -->
+    <main>
+        <div class="container">
+            <h2>LISTA DE NÚMEROS ROXOS</h2>
+            <ul id="numbersList" class="numbers-list">
+                <!-- Os números serão inseridos aqui via JavaScript -->
+            </ul>
+        </div>
+    </main>
+
+    <!-- Rodapé do site -->
+    <footer>
+        <p>&copy; 2024 - SITE DE NÚMEROS ROXO INCRÍVEL. TODOS OS DIREITOS RESERVADOS.</p>
+    </footer>
+
+    <script>
+        // Função para criar partículas flutuantes roxas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particle.style.width = (Math.random() * 4 + 4) + 'px';
+                particle.style.height = particle.style.width;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Função para gerar e exibir os números de 1 a 10
+        function generateNumbers() {
+            const numbersList = document.getElementById('numbersList');
+            
+            // Estrutura de repetição usando for para gerar números de 1 a 10
+            for (let i = 1; i <= 10; i++) {
+                // Criar elemento da lista
+                const listItem = document.createElement('li');
+                listItem.className = 'number-item fade-in glow-effect';
+                listItem.textContent = i;
+                
+                // Adicionar delay de animação para cada item
+                listItem.style.animationDelay = `${i * 0.2}s`;
+                
+                // Adicionar evento de clique para interatividade
+                listItem.addEventListener('click', function() {
+                    // Efeito de clique - mudança temporária de cor
+                    this.style.transform = 'scale(0.85) rotate(-5deg)';
+                    this.style.filter = 'brightness(1.5) hue-rotate(30deg)';
+                    this.style.boxShadow = '0 0 50px rgba(139, 92, 246, 0.8)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = '';
+                        this.style.filter = '';
+                        this.style.boxShadow = '';
+                    }, 300);
+                    
+                    // Mostrar alerta com o número clicado
+                    alert(`🟣 VOCÊ CLICOU NO NÚMERO ${i}! ROXO INCRÍVEL! 🟣`);
+                });
+                
+                // Adicionar o item à lista
+                numbersList.appendChild(listItem);
+            }
+        }
+
+        // Função para inicializar o site
+        function initSite() {
+            // Aguardar o carregamento completo da página
+            document.addEventListener('DOMContentLoaded', function() {
+                // Criar partículas flutuantes
+                createParticles();
+                
+                // Gerar os números
+                generateNumbers();
+                
+                // Adicionar mensagem de boas-vindas no console
+                console.log('🟣 Site Roxo INCRÍVEL carregado com sucesso! Números de 1 a 10 foram gerados. 🟣');
+                console.log('✨ Prepare-se para ficar chocado com a beleza roxa! ✨');
+            });
+        }
+
+        // Inicializar o site
+        initSite();
+    </script>
+</body>
+</html> 
